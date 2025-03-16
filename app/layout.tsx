@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
 import './globals.css';
+import Header from '@/components/layout/header/Header';
 
 const geistSans = Geist({
 	variable: '--font-geist-sans',
@@ -13,7 +14,10 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-	title: 'Basic eCommerce',
+	title: {
+		template: '%s | Basic eCommerce',
+		default: 'Basic eCommerce',
+	},
 	description: 'eCommerce de accesorios básicos de uso personal',
 	authors: [
 		{
@@ -35,10 +39,11 @@ export default function RootLayout({
 	children: React.ReactNode;
 }>) {
 	return (
-		<html lang="en">
+		<html lang='en'>
 			<body
 				className={`${geistSans.variable} ${geistMono.variable} antialiased`}
 			>
+				<Header />
 				{children}
 			</body>
 		</html>

@@ -1,9 +1,11 @@
-import Image from 'next/image';
+import { SearchBar } from '@/components/features/Input/SearchBar';
+import ShoppingKart from '@/components/features/Button/Shopping/ShoppingKart';
 
 export default function Home() {
 	return (
-		<div>
-			<h1>Hola Mundo</h1>
+		<div className='flex justify-around'>
+			<SearchBar />
+			<ShoppingKart />
 		</div>
 	);
 }
