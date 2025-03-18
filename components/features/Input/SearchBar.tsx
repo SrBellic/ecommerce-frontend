@@ -6,9 +6,9 @@ export function SearchBar() {
 			<input
 				type='text'
 				placeholder='Buscar...'
-				className='border-2 border-zinc-400 rounded-md rounded-r-none px-2 py-1 outline-none focus:border-yellow-500'
+				className='outline-2 outline-zinc-400 rounded-md rounded-r-none px-2 py-1  focus:outline-yellow-500'
 			/>
-			<button className='outline-none hover:py-1 hover:px-1.5 hover:border-2 hover:border-yellow-500 bg-yellow-500 text-white rounded-md rounded-l-none px-2 py-1.5 hover:cursor-pointer hover:bg-white hover:text-yellow-500'>
+			<button className='transition outline-2 outline-yellow-500 bg-yellow-500 text-white rounded-md rounded-l-none px-2 py-1 hover:cursor-pointer hover:bg-white hover:text-yellow-500'>
 				<span>
 					<SearchIcon
 						width={22}
