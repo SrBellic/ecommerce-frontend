@@ -1,12 +1,25 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import fetchProduct from '../fetchProduct';
 import Image from 'next/image';
 import './Card.css';
 import testImage from '@/public/statics/JPEG/TEST5.png';
 
+import { Product } from '@/interfaces/interfaces';
+
 export default function Card() {
 	const [showMessage, setShowMessage] = useState(false);
+	const [product, setProduct] = useState<Product | null>(null);
+
+	useEffect(() => {
+		async function fetchProductData() {
+			const data = await fetchProduct(1); // ID del producto que deseas obtener
+			setProduct(data); // Actualiza el estado con los datos obtenidos
+		}
+
+		fetchProductData();
+	}, []);
 
 	return (
 		<>
@@ -35,29 +48,12 @@ export default function Card() {
 						setShowMessage(true);
 					}}
 				>
-					<span
-						onMouseEnter={() => {
-							setShowMessage(true);
-						}}
-						className='text-zinc-400 py-2 text-xs'
-					>
-						Código: C4141
+					<span className='text-zinc-400 py-2 text-xs'>
+						ID: {product?.id ?? 'Cargando...'}
 					</span>
-					<h3
-						onMouseEnter={() => {
-							setShowMessage(true);
-						}}
-					>
-						Bandolero deportivo femenino
-					</h3>
-					<span
-						onMouseEnter={() => {
-							setShowMessage(true);
-						}}
-						className='text-xl py-2'
-					>
-						10$
-					</span>
+					<h3>{product?.name ?? 'Cargando...'}</h3>
+					<span className='text-sm text-gray-500'>{product?.marca ?? ''}</span>
+					<span className='text-xl py-2'>10$</span>
 				</div>
 				{showMessage ? (
 					<div
