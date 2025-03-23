@@ -5,7 +5,7 @@ import Link from 'next/link';
 
 export default function Header() {
 	return (
-		<header className='bg-zinc-200 px-24 py-2 sm:flex sm:justify-between sm:items-center sm:sticky hidden sm:visible'>
+		<header className='bg-zinc-200 mb-5 px-24 py-2 sm:flex sm:justify-between sm:items-center sm:sticky hidden sm:visible'>
 			<div className='flex justify-start'>
 				<Link
 					href='#'
