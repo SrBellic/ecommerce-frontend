@@ -21,12 +21,12 @@ export default function GridCards() {
 					/>
 				</span>
 			</button>
-			<Card key={1} />
+			{/* <Card key={1} />
 			<Card key={2} />
 			<Card key={3} />
 			<Card key={4} />
 			<Card key={5} />
-			<Card key={6} />
+			<Card key={6} /> */}
 		</div>
 	);
 }
