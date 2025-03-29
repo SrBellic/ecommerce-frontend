@@ -19,7 +19,8 @@ export default function Carousel() {
 		<>
 			<div className='flex justify-around items-center'>
 				<button
-					className='hidden sm:flex cursor-pointer h-full rounded-full text-white bg-yellow-400 hover:bg-white hover:text-yellow-400'
+					className={`${slides[curr] === 1 ? null : 'sm:flex'}
+						hidden cursor-pointer h-full rounded-full text-white bg-yellow-400 hover:bg-white hover:text-yellow-400`}
 					onClick={prev}
 				>
 					<span>
@@ -30,19 +31,17 @@ export default function Carousel() {
 					</span>
 				</button>
 				<div className='flex overflow-hidden'>
-					{slides.map((id, index) => (
-						<div
+					{slides.slice(curr, curr + 4).map((id) => (
+						<Card
 							key={id}
-							className={`transition-transform transform ${
-								index === curr ? 'translate-x-0' : 'translate-x-full'
-							}`}
-						>
-							<Card id={id} />
-						</div>
+							id={id}
+						/>
 					))}
 				</div>
 				<button
-					className='hidden sm:flex cursor-pointer h-full rounded-full text-white bg-yellow-400 hover:bg-white hover:text-yellow-400'
+					className={` ${
+						curr < 4 ? 'sm:flex' : null
+					} hidden cursor-pointer h-full rounded-full text-white bg-yellow-400 hover:bg-white hover:text-yellow-400`}
 					onClick={next}
 				>
 					<span>
