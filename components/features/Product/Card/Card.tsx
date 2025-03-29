@@ -10,7 +10,7 @@ import testImage from '@/public/statics/JPEG/TEST5.png';
 
 import { Product } from '@/interfaces/interfaces';
 
-export default function Card() {
+export default function Card({ id }: Readonly<{ id: number }>) {
 	const [showButton, setShowButton] = useState(false);
 	// const [product, setProduct] = useState<Product | null>(null);
 
@@ -39,7 +39,7 @@ export default function Card() {
 				/>
 				<div className='flex flex-col w-full rounded-b-md px-5'>
 					<span className='text-zinc-400 py-2 text-xs'>
-						ID: 12345 {/*product?.id ?? 'Cargando...'*/}
+						ID: {id} {/*product?.id ?? 'Cargando...'*/}
 					</span>
 					<h3>Bandolero{/*product?.name ?? 'Cargando...'*/}</h3>
 					<span className='text-sm text-gray-500'>
