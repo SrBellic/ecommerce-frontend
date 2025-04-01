@@ -36,10 +36,10 @@ export default function Header() {
 			</div>
 			<div className='flex justify-center'>
 				<Link
-					href='#'
+					href='/login'
 					className='text-lg'
 				>
-					Usuario
+					Inicia Sesión
 					<span>
 						<AvatarIcon
 							width={18}
