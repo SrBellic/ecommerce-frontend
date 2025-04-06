@@ -4,18 +4,18 @@ import api from '@/utils/api';
 import { User } from '@/interfaces/interfaces';
 import { redirect } from 'next/navigation';
 
-type AuthUser = Pick<User, 'email' | 'edad'>;
+type AuthUser = Pick<User, 'email' | 'password'>;
 
 async function Auth(formData: FormData): Promise<void> {
 	try {
 		//Transformación de FormData a AuthUser
 		const user: AuthUser = {
 			email: formData.get('email') as string,
-			edad: Number(formData.get('edad')),
+			password: formData.get('password') as string,
 		};
 
 		//Validación temporal que valida que los datos se encuentren en la BBDD
-		if (!user.email || isNaN(user.edad)) {
+		if (!user.email || !user.password) {
 			throw new Error('Datos inválidos');
 		}
 
