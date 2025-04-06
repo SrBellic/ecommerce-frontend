@@ -13,7 +13,7 @@ export default function Button({
 		<>
 			<button
 				onClick={onPress}
-				className='bg-yellow-500 text-white rounded-md px-2 py-1.5 cursor-pointer hover:bg-white hover:text-yellow-500 hover:outline-2 hover:outline-yellow-500 flex'
+				className='bg-indigo-500 shadow-md shadow-indigo-500 text-white rounded-md px-2 py-1.5 cursor-pointer hover:bg-white hover:text-indigo-500 hover:outline-2 hover:outline-indigo-500 flex'
 			>
 				<span className='mx-2'>{text}</span>
 				<span>{children}</span>

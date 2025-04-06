@@ -19,8 +19,8 @@ export default function Carousel() {
 		<>
 			<div className='flex justify-around items-center'>
 				<button
-					className={`${slides[curr] === 1 ? null : 'sm:flex'}
-						hidden cursor-pointer h-full rounded-full text-white bg-yellow-400 hover:bg-white hover:text-yellow-400`}
+					className={`${slides[curr] === 1 ? 'invisible' : 'sm:flex'}
+						 cursor-pointer h-full rounded-full text-white bg-indigo-500 hover:bg-white hover:text-indigo-500`}
 					onClick={prev}
 				>
 					<span>
@@ -40,8 +40,8 @@ export default function Carousel() {
 				</div>
 				<button
 					className={` ${
-						curr < 4 ? 'sm:flex' : null
-					} hidden cursor-pointer h-full rounded-full text-white bg-yellow-400 hover:bg-white hover:text-yellow-400`}
+						slides[curr] <= 4 ? 'sm:flex' : 'invisible'
+					}  cursor-pointer h-full rounded-full text-white bg-indigo-500 hover:bg-white hover:text-indigo-500`}
 					onClick={next}
 				>
 					<span>
