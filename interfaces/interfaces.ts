@@ -14,7 +14,6 @@ export interface User {
 	password: string;
 	phone: number | string;
 	address: string;
-	edad: number; //Borrar
 }
 /*interface Product {
 	product: {
