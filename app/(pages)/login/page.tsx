@@ -49,6 +49,15 @@ export default function Page() {
 							aquí
 						</Link>
 					</small>
+					<hr className='my-4 text-gray-400' />
+					<small className='text-center'>
+						<Link
+							href={`/`}
+							className='text-indigo-500 hover:underline'
+						>
+							Volver al inicio
+						</Link>
+					</small>
 				</div>
 			</div>
 		</main>
