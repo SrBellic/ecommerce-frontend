@@ -3,12 +3,11 @@
 import Link from 'next/link';
 import Form from 'next/form';
 import Auth from './auth';
-import { redirect } from 'next/navigation';
 
 export default function Page() {
 	const INPUT_DETAILS = [
 		{ name: 'email', placeholder: 'Correo Electrónico' },
-		{ name: 'edad', placeholder: 'Contraseña' },
+		{ name: 'password', placeholder: 'Contraseña' },
 	];
 
 	return (
@@ -29,7 +28,6 @@ export default function Page() {
 					))}
 					<button
 						type='submit'
-						onClick={() => redirect('/')}
 						className='bg-indigo-400 rounded-md shadow-md shadow-indigo-500 text-white py-1.5 cursor-pointer outline-2 outline-indigo-400 hover:bg-white hover:text-indigo-400 focus:outline-white transition'
 					>
 						Ingresar
