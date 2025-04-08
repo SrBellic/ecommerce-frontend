@@ -6,62 +6,183 @@ import Register from './register';
 import { redirect } from 'next/navigation';
 
 export default function Page() {
-	const InputDetails = [
-		{ name: 'name', placeholder: 'Nombre' },
-		{ name: 'lastName', placeholder: 'Apellido' },
-		{ name: 'cedula', placeholder: 'Cédula' },
-		{ name: 'email', placeholder: 'Correo Electrónico' },
-		{ name: 'phone', placeholder: 'Teléfono' },
-		{ name: 'password', placeholder: 'Contraseña' },
-		{ name: 'address', placeholder: 'Dirección' },
+	// Constantes para cada fila del formulario
+	const FIRST_ROW_INPUTS = [
+		{ name: 'name', placeholder: 'Nombre', type: 'text' },
+		{ name: 'lastName', placeholder: 'Apellido', type: 'text' },
+	];
+
+	const SECOND_ROW_INPUT = [
+		{
+			name: 'email',
+			placeholder: 'Correo Electrónico',
+			type: 'email',
+			isFullWidth: true,
+		},
+	];
+
+	const THIRD_ROW_INPUTS = [
+		{ name: 'password', placeholder: 'Contraseña', type: 'password' },
+		{
+			name: 'confirmPassword',
+			placeholder: 'Confirmar Contraseña',
+			type: 'password',
+		},
+	];
+
+	const FOURTH_ROW_INPUT = [
+		{ name: 'phone', placeholder: 'Teléfono', type: 'tel' },
+	];
+
+	const FIFTH_ROW_INPUT = [
+		{
+			name: 'address',
+			placeholder: 'Dirección',
+			type: 'text',
+			isFullWidth: true,
+			isTextarea: true,
+		},
 	];
 
 	return (
-		<main>
-			<div className='flex justify-center h-full'>
-				<div className='bg-gray-200 max-w-1/2 p-5 rounded-md shadow-md shadow-gray-300'>
-					<Form
-						action={Register}
-						className='flex flex-col gap-y-2'
-					>
-						<div className='flex flex-wrap gap-x-4 gap-y-2.5 mb-2'>
-							{InputDetails.map((input, index) => (
+		<main className='flex justify-center items-center max-h-screen p-3 sm:p-0 bg-gray-50'>
+			<div className='w-full max-w-lg bg-white rounded-lg shadow-lg p-6'>
+				<h1 className='text-2xl font-bold text-gray-900 mb-2'>Registro</h1>
+				<p className='text-gray-500 mb-6 hidden sm:block'>
+					Por favor complete todos los campos para crear su cuenta.
+				</p>
+				<Form
+					action={Register}
+					className='space-y-4'
+				>
+					<div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
+						{FIRST_ROW_INPUTS.map((input, index) => (
+							<div
+								key={index}
+								className='space-y-2'
+							>
+								<label htmlFor={input.name}>{input.placeholder}</label>
 								<input
-									key={index}
-									className='bg-white rounded px-1.5 py-1 focus:outline-indigo-400 flex-1 min-w-[calc(50%-0.5rem)]'
-									type='text'
+									type={input.type}
 									name={input.name}
-									placeholder={input.placeholder}
+									placeholder={`Ingrese su ${input.placeholder.toLowerCase()}`}
+									className='w-full px-3 py-2 bg-white border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:border-transparent'
 								/>
-							))}
+							</div>
+						))}
+						{SECOND_ROW_INPUT.map((input, index) => (
+							<div
+								key={index}
+								className={`space-y-2 ${
+									input.isFullWidth ? 'md:col-span-2' : ''
+								}`}
+							>
+								<label htmlFor={input.name}>{input.placeholder}</label>
+								<input
+									type={input.type}
+									name={input.name}
+									placeholder='correo@ejemplo.com'
+									className='w-full px-3 py-2 bg-white border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:border-transparent'
+								/>
+							</div>
+						))}
+						{THIRD_ROW_INPUTS.map((input, index) => (
+							<div
+								key={index}
+								className='space-y-2'
+							>
+								<label htmlFor={input.name}>{input.placeholder}</label>
+								<input
+									type={input.type}
+									name={input.name}
+									placeholder='********'
+									className='w-full px-3 py-2 bg-white border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:border-transparent'
+								/>
+							</div>
+						))}
+						<div className='space-y-2'>
+							<label htmlFor='cedulaType'>Cédula</label>
+							<div className='flex'>
+								<select
+									name='cedulaType'
+									className='px-1 py-2 bg-white border border-gray-300 rounded-l-md focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:border-transparent'
+								>
+									<option value='V-'>V-</option>
+									<option value='E-'>E-</option>
+								</select>
+								<input
+									type='text'
+									name='cedula'
+									placeholder='Número de Cédula'
+									className='flex-1 w-full px-1 py-2 bg-white border border-gray-300 rounded-r-md focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:border-transparent border-l-0'
+								/>
+							</div>
 						</div>
-						<button
-							type='submit'
-							onClick={() => redirect('/login')}
-							className='bg-indigo-400 rounded-md shadow-md shadow-indigo-500 text-white py-1.5 cursor-pointer outline-2 outline-indigo-400 hover:bg-white hover:text-indigo-400 focus:outline-white transition'
+						{FOURTH_ROW_INPUT.map((input, index) => (
+							<div
+								key={index}
+								className='space-y-2'
+							>
+								<label htmlFor={input.name}>{input.placeholder}</label>
+								<input
+									type={input.type}
+									name={input.name}
+									placeholder={`Ingrese su ${input.placeholder.toLowerCase()}`}
+									className='w-full px-3 py-2 bg-white border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:border-transparent'
+								/>
+							</div>
+						))}
+						{FIFTH_ROW_INPUT.map((input, index) => (
+							<div
+								key={index}
+								className={`space-y-2 ${
+									input.isFullWidth ? 'md:col-span-2' : ''
+								}`}
+							>
+								<label htmlFor={input.name}>{input.placeholder}</label>
+								{input.isTextarea ? (
+									<textarea
+										name={input.name}
+										placeholder='Ingrese su dirección completa'
+										className='w-full min-h-[80px] max-h-[100px] px-3 py-2 bg-white border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:border-transparent'
+									/>
+								) : (
+									<input
+										type={input.type}
+										name={input.name}
+										placeholder={`Ingrese su ${input.placeholder.toLowerCase()}`}
+										className='w-full px-3 py-2 bg-white border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:border-transparent'
+									/>
+								)}
+							</div>
+						))}
+					</div>
+					<button
+						type='submit'
+						onClick={() => redirect('/login')}
+						className='w-full cursor-pointer bg-indigo-500 text-white py-2 px-4 rounded-md shadow-md shadow-indigo-300 hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:ring-opacity-50 transition-colors'
+					>
+						Registrarse
+					</button>
+				</Form>
+				<div className='mt-6 space-y-4'>
+					<div className='text-sm text-gray-600'>
+						¿Ya tienes cuenta?
+						<Link
+							href={`/login`}
+							className='ml-1 text-indigo-500 hover:text-indigo-600 hover:underline'
 						>
-							Registrar
-						</button>
-					</Form>
-					<div className='flex flex-col mt-3'>
-						<small>
-							¿Ya tienes cuenta? Haz click{' '}
-							<Link
-								href={`/login`}
-								className='text-indigo-500 hover:underline'
-							>
-								aquí
-							</Link>
-						</small>
-						<hr className='my-4 text-gray-300' />
-						<small>
-							<Link
-								href={`/`}
-								className='text-indigo-500 hover:underline'
-							>
-								Volver al inicio
-							</Link>
-						</small>
+							Iniciar sesión
+						</Link>
+					</div>
+					<hr className='border-gray-200' />
+					<div className='text-sm text-gray-600'>
+						<Link
+							href={`/`}
+							className='text-indigo-500 hover:text-indigo-600 hover:underline'
+						>
+							Volver al inicio
+						</Link>
 					</div>
 				</div>
 			</div>
