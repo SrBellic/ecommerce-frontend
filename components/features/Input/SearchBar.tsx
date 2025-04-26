@@ -1,22 +1,16 @@
-import SearchIcon from '@/public/statics/SVG/search.svg';
+import { Search } from 'lucide-react';
 
 export function SearchBar() {
 	return (
-		<div className='flex justify-center items-center'>
+		<div className='relative flex-grow max-w-md'>
+			<div className='absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none'>
+				<Search className='h-5 w-5 text-gray-400' />
+			</div>
 			<input
 				type='text'
-				placeholder='Buscar...'
-				className='outline-2 outline-zinc-400 rounded-md rounded-r-none px-2 py-1  focus:outline-indigo-500'
+				placeholder='Buscar productos...'
+				className='block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md leading-5 bg-white placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm'
 			/>
-			<button className='transition outline-2 outline-indigo-500 bg-indigo-500 text-white rounded-md rounded-l-none px-2 py-1 hover:cursor-pointer hover:bg-white hover:text-indigo-500'>
-				<span>
-					<SearchIcon
-						width={22}
-						height={22}
-						className='inline-block'
-					/>
-				</span>
-			</button>
 		</div>
 	);
 }
