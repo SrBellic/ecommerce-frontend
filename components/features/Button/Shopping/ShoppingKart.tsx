@@ -1,8 +1,7 @@
 'use client';
 
-import { useState } from 'react';
 import './ShoppingKart.css';
-import ShoppingKartIcon from '@/public/statics/SVG/shopping-cart.svg';
+import { ShoppingCart } from 'lucide-react';
 
 export default function ShoppingKart({
 	kart,
@@ -10,17 +9,15 @@ export default function ShoppingKart({
 	kart: number;
 }>) {
 	return (
-		<>
-			<div className='flex justify-center items-center relative'>
-				<button className='transition shadow-md shadow-indigo-500 bg-indigo-500 text-white rounded-full px-2 py-1.5 cursor-pointer hover:bg-white hover:text-indigo-500 hover:outline-2 hover:outline-indigo-500'>
-					<ShoppingKartIcon
-						width={28}
-						height={28}
-						className='inline-block'
-					/>
-					{kart != 0 ? <span className='badge'>{kart}</span> : null}
-				</button>
-			</div>
-		</>
+		<div className='relative'>
+			<button className='flex items-center justify-center p-2 rounded-full bg-indigo-600 text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-colors'>
+				<ShoppingCart className='h-5 w-5' />
+				{kart > 0 && (
+					<span className='absolute -top-1 -right-1 bg-red-500 text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center'>
+						{kart}
+					</span>
+				)}
+			</button>
+		</div>
 	);
 }
