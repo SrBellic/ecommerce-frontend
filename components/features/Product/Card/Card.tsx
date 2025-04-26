@@ -1,62 +1,53 @@
-'use client';
-
-import { useState, useEffect } from 'react';
-import fetchProduct from '../fetchProduct';
-import Image from 'next/image';
-import './Card.css';
-import Button from '../../Button/Button';
-import ShoppingKartIcon from '@/public/statics/SVG/shopping-cart.svg';
 import testImage from '@/public/statics/JPEG/TEST5.png';
 
-import { Product } from '@/interfaces/interfaces';
+import Image from 'next/image';
+import { ShoppingCart, Heart } from 'lucide-react';
 
-export default function Card({ id }: Readonly<{ id: number }>) {
-	const [showButton, setShowButton] = useState(false);
-	// const [product, setProduct] = useState<Product | null>(null);
-
-	// useEffect(() => {
-	// 	async function fetchProductData() {
-	// 		const data = await fetchProduct(1); // ID del producto que deseas obtener
-	// 		setProduct(data); // Actualiza el estado con los datos obtenidos
-	// 	}
-
-	// 	fetchProductData();
-	// }, []);
-
+export default function Card({ id }: { id: number }) {
 	return (
-		<>
-			<article
-				className='w-full sm:w-max px-3 pb-4 flex flex-col justify-center items-center rounded-md cursor-pointer hover:shadow-2xl relative'
-				onMouseEnter={() => setShowButton(true)}
-				onMouseLeave={() => setShowButton(false)}
-			>
+		<div className='group relative bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300'>
+			{/* Badge */}
+			{/* {id % 3 === 0 && (
+				<div className='absolute top-2 left-2 z-10'>
+					<span className='inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-indigo-100 text-indigo-800'>
+						Nuevo
+					</span>
+				</div>
+			)} */}
+
+			{/* Wishlist button */}
+			{/* <button className='absolute top-2 right-2 z-10 p-1.5 rounded-full bg-white/80 hover:bg-white text-gray-600 hover:text-rose-500 transition-colors'>
+				<Heart className='h-5 w-5' />
+			</button> */}
+
+			{/* Image */}
+			<div className='aspect-square overflow-hidden'>
 				<Image
 					src={testImage}
-					alt='prueba'
-					width={250}
-					height={250}
-					className='blur-card'
+					alt={`Producto ${id}`}
+					width={300}
+					height={300}
+					className='w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300'
 				/>
-				<div className='flex flex-col w-full rounded-b-md px-5'>
-					<span className='text-zinc-400 py-2 text-xs'>
-						ID: {id} {/*product?.id ?? 'Cargando...'*/}
-					</span>
-					<h3>Bandolero{/*product?.name ?? 'Cargando...'*/}</h3>
-					<span className='text-sm text-gray-500'>
-						Grenobil{/*product?.marca ?? ''*/}
-					</span>
-					<span className='text-xl py-2 text-right'>10$</span>
+			</div>
+
+			{/* Content */}
+			<div className='p-4'>
+				<div className='flex justify-between items-start'>
+					<div>
+						<h3 className='text-sm font-medium text-gray-900'>Bandolero</h3>
+						<p className='mt-1 text-xs text-gray-500'>Grenobil</p>
+					</div>
+					<p className='text-lg font-bold text-gray-900'>10$</p>
 				</div>
-				<div className={`invisible ${showButton ? 'visible' : null}`}>
-					<Button text='Agregar al carrito'>
-						<ShoppingKartIcon
-							width={28}
-							height={28}
-							className='inline-block'
-						/>
-					</Button>
+
+				<div className='mt-4'>
+					<button className='w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500'>
+						<ShoppingCart className='mr-2 h-4 w-4' />
+						Añadir al carrito
+					</button>
 				</div>
-			</article>
-		</>
+			</div>
+		</div>
 	);
 }
