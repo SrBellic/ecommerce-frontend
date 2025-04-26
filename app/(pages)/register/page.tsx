@@ -1,9 +1,11 @@
 'use client';
 
+import { useState } from 'react';
 import Form from 'next/form';
 import Link from 'next/link';
 import Register from './register';
 import { redirect } from 'next/navigation';
+import { ERROR_MESSAGE, TEXT_RESTRICTION } from '@/utils/constants';
 
 export default function Page() {
 	// Constantes para cada fila del formulario
@@ -22,7 +24,11 @@ export default function Page() {
 	];
 
 	const THIRD_ROW_INPUTS = [
-		{ name: 'password', placeholder: 'Contraseña', type: 'password' },
+		{
+			name: 'password',
+			placeholder: 'Contraseña',
+			type: 'password',
+		},
 		{
 			name: 'confirmPassword',
 			placeholder: 'Confirmar Contraseña',
@@ -31,7 +37,7 @@ export default function Page() {
 	];
 
 	const FOURTH_ROW_INPUT = [
-		{ name: 'phone', placeholder: 'Teléfono', type: 'tel' },
+		{ name: 'phone', placeholder: 'Teléfono', type: 'text' },
 	];
 
 	const FIFTH_ROW_INPUT = [
