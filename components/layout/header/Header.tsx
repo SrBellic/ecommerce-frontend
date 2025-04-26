@@ -1,53 +1,83 @@
-import SendIcon from '@/public/statics/SVG/send.svg';
-import WhatsappIcon from '@/public/statics/SVG/whatsapp.svg';
-import AvatarIcon from '@/public/statics/SVG/avatar.svg';
+import { MessageSquare, Send, User } from 'lucide-react';
 import Link from 'next/link';
 
 export default function Header() {
 	return (
-		<header className='bg-zinc-200 mb-5 px-24 py-2 sm:flex sm:justify-between sm:items-center sm:sticky hidden sm:visible'>
-			<div className='flex justify-start'>
-				<Link
-					href='#'
-					className='mx-3 hover:text-green-400 transition-color duration-250 ease-in-out'
-				>
-					Contáctanos
-					<span>
-						<WhatsappIcon
-							width={18}
-							height={18}
-							className='inline-block mx-2 '
-						/>
-					</span>
-				</Link>
-				<Link
-					href='#'
-					className='mx-3 hover:text-blue-400 transition-color duration-250 ease-in-out'
-				>
-					Envíos
-					<span>
-						<SendIcon
-							width={18}
-							height={18}
-							className='inline-block mx-2'
-						/>
-					</span>
-				</Link>
+		<header className='bg-white shadow-sm'>
+			{/* Top bar */}
+			<div className='bg-gray-50 border-b border-gray-100'>
+				<div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
+					<div className='flex items-center justify-between h-10'>
+						<div className='flex items-center space-x-4'>
+							<Link
+								href='#'
+								className='text-sm text-gray-600 hover:text-green-600 transition-colors flex items-center'
+							>
+								<MessageSquare className='w-4 h-4 mr-1' />
+								<span>Contáctanos</span>
+							</Link>
+							<Link
+								href='#'
+								className='text-sm text-gray-600 hover:text-indigo-600 transition-colors flex items-center'
+							>
+								<Send className='w-4 h-4 mr-1' />
+								<span>Envíos</span>
+							</Link>
+						</div>
+						<div>
+							<Link
+								href='/login'
+								className='text-sm text-gray-600 hover:text-indigo-600 transition-colors flex items-center'
+							>
+								<span>Inicia Sesión</span>
+								<User className='w-4 h-4 ml-1' />
+							</Link>
+						</div>
+					</div>
+				</div>
 			</div>
-			<div className='flex justify-center'>
-				<Link
-					href='/login'
-					className='text-lg'
-				>
-					Inicia Sesión
-					<span>
-						<AvatarIcon
-							width={18}
-							height={18}
-							className='inline-block mx-2'
-						/>
-					</span>
-				</Link>
+
+			{/* Main header */}
+			<div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
+				<div className='flex justify-between items-center py-4'>
+					<div>
+						<Link
+							href='/'
+							className='flex items-center'
+						>
+							<span className='text-2xl font-bold text-indigo-600'>Basic</span>
+							<span className='text-2xl font-bold text-gray-900'>
+								eCommerce
+							</span>
+						</Link>
+					</div>
+					<nav className='hidden md:flex space-x-8'>
+						<Link
+							href='#'
+							className='text-gray-600 hover:text-indigo-600 transition-colors'
+						>
+							Novedades
+						</Link>
+						<Link
+							href='#'
+							className='text-gray-600 hover:text-indigo-600 transition-colors'
+						>
+							Ofertas
+						</Link>
+						<Link
+							href='#'
+							className='text-gray-600 hover:text-indigo-600 transition-colors'
+						>
+							Colecciones
+						</Link>
+						<Link
+							href='#'
+							className='text-gray-600 hover:text-indigo-600 transition-colors'
+						>
+							Nosotros
+						</Link>
+					</nav>
+				</div>
 			</div>
 		</header>
 	);
