@@ -12,6 +12,7 @@ export default function Carousel() {
 
 	useEffect(() => {
 		const handleResize = () => {
+			//Reescalado responsivo para el carrusel
 			if (window.innerWidth < 640) {
 				setVisibleItems(1);
 			} else if (window.innerWidth < 768) {
