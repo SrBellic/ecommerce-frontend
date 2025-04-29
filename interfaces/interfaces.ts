@@ -1,10 +1,3 @@
-export interface Product {
-	id: number;
-	name: string;
-	created_by: number;
-	marca: string;
-}
-
 export interface User {
 	id: number;
 	name: string;
@@ -15,14 +8,16 @@ export interface User {
 	phone: number | string;
 	address: string;
 }
-/*interface Product {
-	product: {
-		name: string;
-		description: string;
-		price: number;
-		stock: number;  //Interfaz que se usará
-		color_id: number;
-		category_id: string;
-		status: boolean;
-	};
-}*/
+
+export interface Product {
+	id: number;
+	name: string;
+	marca: string;
+	description: string;
+	price: number;
+	stock: number; //Interfaz que se usará
+	color_id: number;
+	category_id: string;
+	status: boolean;
+	created_by: number;
+}
