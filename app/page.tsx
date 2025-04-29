@@ -53,7 +53,7 @@ export default function Home() {
 
 			{/* Featured Products */}
 			<div className='my-12'>
-				<div className='flex items-center justify-between mb-6'>
+				<section className='flex items-center justify-between mb-6'>
 					<h2 className='text-2xl font-bold text-gray-900'>
 						Productos Destacados
 					</h2>
@@ -65,7 +65,23 @@ export default function Home() {
 							Ver todos
 						</Link>
 					</div>
-				</div>
+				</section>
+				<Carousel />
+			</div>
+			<div className='my-12'>
+				<section className='flex items-center justify-between mb-6'>
+					<h2 className='text-2xl font-bold text-gray-900'>
+						Podría interesarte
+					</h2>
+					<div className='flex space-x-2'>
+						<Link
+							href='#'
+							className='text-indigo-600 hover:text-indigo-800 font-medium'
+						>
+							Ver todos
+						</Link>
+					</div>
+				</section>
 				<Carousel />
 			</div>
 		</main>
