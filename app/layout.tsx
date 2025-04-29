@@ -2,10 +2,12 @@ import type { Metadata } from 'next';
 import { Open_Sans } from 'next/font/google';
 import './globals.css';
 import Header from '@/components/layout/header/Header';
+import Footer from '@/components/layout/footer/Footer';
 
 const OpenSans = Open_Sans({
-	weight: '400',
+	weight: ['400', '500', '600', '700'],
 	subsets: ['latin'],
+	display: 'swap',
 });
 
 export const metadata: Metadata = {
@@ -38,6 +40,7 @@ export default function RootLayout({
 			<body className={`${OpenSans.className} antialiased`}>
 				<Header />
 				{children}
+				<Footer />
 			</body>
 		</html>
 	);
