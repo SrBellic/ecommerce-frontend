@@ -1,4 +1,4 @@
-import fetchProduct from '@/components/features/Product/fetchProduct';
+import { fetchProduct } from '@/components/features/Product/fetchProduct';
 
 export default async function Page({
 	params,
