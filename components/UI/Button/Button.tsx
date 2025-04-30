@@ -4,21 +4,25 @@ export default function Button({
 	text,
 	children,
 	className,
+	fullSize,
 	onPress,
 }: Readonly<{
 	text?: string;
 	children: React.ReactNode;
-	className: string;
+	className?: string;
+	fullSize?: boolean;
 	onPress?: () => void;
 }>) {
 	return (
 		<>
 			<button
 				onClick={onPress}
-				className={`${className} bg-indigo-500 shadow-md shadow-indigo-500 text-white rounded-md px-2 py-1.5 cursor-pointer hover:bg-white hover:text-indigo-500 hover:outline-2 hover:outline-indigo-500 flex`}
+				className={`${className} ${text ? `px-2` : `px-3`} w-${
+					fullSize ? `full` : `max`
+				} cursor-pointer flex justify-center py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500`}
 			>
-				<span className='mx-2'>{text}</span>
 				<span>{children}</span>
+				{text && <span className='mx-2'>{text}</span>}
 			</button>
 		</>
 	);
