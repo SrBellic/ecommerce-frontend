@@ -12,12 +12,14 @@ export interface User {
 export interface Product {
 	id: number;
 	name: string;
-	marca: string;
+	brand: string;
 	description: string;
 	price: number;
 	stock: number; //Interfaz que se usará
-	color_id: number;
-	category_id: string;
+	color: string;
+	category: string;
 	status: boolean;
 	created_by: number;
+	isNew?: boolean;
+	discount?: number | null;
 }
