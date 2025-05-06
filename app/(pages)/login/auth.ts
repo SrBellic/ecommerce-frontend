@@ -1,5 +1,3 @@
-'use server';
-
 import api from '@/utils/api';
 import { User } from '@/interfaces/interfaces';
 import { redirect } from 'next/navigation';
