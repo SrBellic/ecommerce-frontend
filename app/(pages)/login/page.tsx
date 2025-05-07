@@ -33,7 +33,6 @@ export default function Page() {
 						Ingresa tus credenciales para acceder
 					</p>
 				</div>
-
 				<div className='bg-white rounded-lg shadow-lg p-6 sm:p-8'>
 					<Form
 						action={Auth}
