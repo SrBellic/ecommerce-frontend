@@ -5,6 +5,7 @@ import {
 	ResumeSection,
 	ProductsSection,
 	OrdersSection,
+	ProfileSection,
 } from '@/components/layout/dashboard/Sections';
 import { LayoutDashboard, ShoppingBag, Package, User } from 'lucide-react';
 
@@ -42,7 +43,9 @@ export default function Page() {
 	return (
 		<>
 			<div className='grid-cols md:grid-cols-2 justify-between space-y-4 p-4 md:p-8 pt-6'>
-				<h2 className='text-3xl font-bold tracking-tight'>Dashboard</h2>
+				<h2 className='text-3xl font-bold tracking-tight'>
+					Panel Administrativo
+				</h2>
 				<nav className='grid grid-cols-2 md:grid-cols-4 gap-2 py-1.5'>
 					{CATEGORY_BUTTONS.map((category, index) => (
 						<button
@@ -73,6 +76,11 @@ export default function Page() {
 			{renderCategory === 'Pedidos' && (
 				<>
 					<OrdersSection />
+				</>
+			)}
+			{renderCategory === 'Perfil' && (
+				<>
+					<ProfileSection />
 				</>
 			)}
 		</>
