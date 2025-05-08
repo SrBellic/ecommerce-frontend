@@ -51,7 +51,7 @@ export default function Header() {
 							</span>
 						</Link>
 					</div>
-					<nav className='hidden md:flex space-x-8'>
+					{/* <nav className='hidden md:flex space-x-8'>
 						<Link
 							href='#'
 							className='text-gray-600 hover:text-indigo-600 transition-colors'
@@ -76,7 +76,7 @@ export default function Header() {
 						>
 							Nosotros
 						</Link>
-					</nav>
+					</nav> */}
 				</div>
 			</div>
 		</header>
