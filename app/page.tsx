@@ -5,6 +5,7 @@ import { SearchBar } from '@/components/features/Input/SearchBar';
 import ShoppingKart from '@/components/UI/Button/Shopping/ShoppingKart';
 import Link from 'next/link';
 import Carousel from '@/components/layout/content/Carousel';
+import { CATEGORY_LINKS } from '@/utils/constants';
 
 export default function Home() {
 	const [kartCount, setKartCount] = useState(0);
@@ -37,17 +38,15 @@ export default function Home() {
 				<h2 className='text-2xl font-bold text-gray-900 mb-6'>Categorías</h2>
 				<div className='grid grid-cols-2 md:grid-cols-5 gap-4'>
 					{/* Estas categorías van a sufrir cambios según sean los productos que se vendan*/}
-					{['Bandolero', 'Billetera', 'Cartera', 'Morral', 'Viajero'].map(
-						(category) => (
-							<Link
-								key={category}
-								href='#'
-								className='bg-white shadow-md hover:shadow-lg transition-shadow duration-300 rounded-lg p-4 text-center hover:bg-indigo-50'
-							>
-								<span className='font-medium text-gray-800'>{category}</span>
-							</Link>
-						)
-					)}
+					{CATEGORY_LINKS.map((category) => (
+						<Link
+							key={category}
+							href={`/category/${category.toLowerCase()}`}
+							className='bg-white shadow-md hover:shadow-lg transition-shadow duration-300 rounded-lg p-4 text-center hover:bg-indigo-50'
+						>
+							<span className='font-medium text-gray-800'>{category}</span>
+						</Link>
+					))}
 				</div>
 			</div>
 
